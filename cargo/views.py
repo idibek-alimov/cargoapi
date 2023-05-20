@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from django.conf import settings
 # Create your views here.
 from .telegram_helper import Telegram
-
+from django.views.decorators.csrf import csrf_exempt
 
 # class MessageList(generics.ListCreateAPIView):
 #     queryset = Message.objects.all()
@@ -39,6 +39,7 @@ class ClientList(generics.ListCreateAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
 
+    @csrf_exempt
     def create(self, request):
         serializer = ClientSerializer(data=request.data)
         # Telegram.send_massage("hello motherfucker")
@@ -62,6 +63,7 @@ class CalculatorDataList(generics.ListCreateAPIView):
     queryset = CalculatorData.objects.all()
     serializer_class = CalculatorDataSerializer
 
+    @csrf_exempt
     def create(self, request):
         serializer = CalculatorDataSerializer(data=request.data)
         # Telegram.send_massage("hello motherfucker")
