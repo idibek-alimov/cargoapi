@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-)@)a(jc*re$a#2x-9dgnsdeawz(0_j#-ngvibj7ns9q=m@i#n+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -77,11 +77,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'cargo_project.urls'
-CORS_ALLOWED_ORIGINS = (
-    "http://localhost:3000",
-    "http://localhost:8000",
-)
+# CORS_ALLOWED_ORIGINS = (
+#     "http://localhost:3000",
+#     "http://localhost:8000",
+
+# )
 CSRF_TRUSTED_ORIGINS = ["http://emample.com",
                         "http://localhost:8080", "http://localhost:3000"]
 
@@ -139,7 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# WSGI_APPLICATION = 'cargoapi.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
