@@ -23,7 +23,10 @@ class CalculatorData(models.Model):
         max_digits=19, decimal_places=10, blank=True, null=True)
     deliveryTime = models.IntegerField(default=0, blank=True, null=True)
     checked = models.BooleanField(default=False)
-    
+
+    def __str__(self) -> str:
+        return self.name
+
 
 class Client(models.Model):
     name = models.CharField(max_length=50, blank=True)
@@ -32,3 +35,6 @@ class Client(models.Model):
     deliveryMethod = models.CharField(
         max_length=50, blank=True, default="Авто", null=True)
     checked = models.BooleanField(default=False, blank=True, null=True)
+
+    def __str__(self) -> str:
+        return self.name
