@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-)@)a(jc*re$a#2x-9dgnsdeawz(0_j#-ngvibj7ns9q=m@i#n+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*,.versel.app"]
+ALLOWED_HOSTS = ["*", "cargoapi.vercel.app", ".versel.app"]
 
 
 # Application definit
