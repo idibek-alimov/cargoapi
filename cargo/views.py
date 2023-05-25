@@ -43,12 +43,18 @@ class ClientList(generics.ListCreateAPIView):
     def create(self, request):
         serializer = ClientSerializer(data=request.data)
         # Telegram.send_massage("hello motherfucker")
-        print("client creation")
-        print(request.data)
+        # print("client creation")
+        # print(request.data)
         if serializer.is_valid():
             serializer.save()
-            print(serializer.data)
-            Telegram.send_massage(serializer.data)
+            # print(serializer.data)
+            massage = "Имя: "+serializer.data["name"] + "\n"
+            massage = massage + "Тел: "+serializer.data["number"] + "\n"
+            massage = massage + "Комментарий: "+serializer.data["comment"]+"\n"
+            if (serializer.data["deliveryMethod"] != None):
+                massage = massage + "Способ доставки: " + \
+                    serializer.data["deliveryMethod"] + "\n"
+            Telegram.send_massage(massage)
             return Response({
                 "message": serializer.data
             })
@@ -69,10 +75,40 @@ class CalculatorDataList(generics.ListCreateAPIView):
         # Telegram.send_massage("hello motherfucker")
         print("calculator creation")
         print(request.data)
+
         if serializer.is_valid():
             serializer.save()
+            massage = "Имя: "+serializer.data["name"] + "\n"
+            massage = massage + "Тел: "+serializer.data["number"] + "\n"
+            massage = massage + "Тип продукта: " + \
+                serializer.data["productType"] + "\n"
+            massage = massage + "Имя продукта: " + \
+                serializer.data["productName"] + "\n"
+            massage = massage + "Количества: " + \
+                str(serializer.data["quantity"]) + "\n"
+            massage = massage + "Масса: " + \
+                str(serializer.data["mass"]) + "кг" + "\n"
+            massage = massage + "Способ доставки: " + \
+                serializer.data["deliveryMethod"] + "\n"
+            massage = massage + "Адрес: " + serializer.data["address"] + "\n"
+            if (serializer.data["insurance"] != False):
+                massage = massage + "Страховка: " + "Да" + "\n"
+            else:
+                massage = massage + "Страховка: " + "Нет" + "\n"
+            if (serializer.data["deliveryPrice"] != None):
+                massage = massage + "Цена: " + \
+                    str(serializer.data["deliveryPrice"]) + "\n"
+            if (serializer.data["deliveryTime"] != None):
+                massage = massage + "Время доставки: " + \
+                    str(serializer.data["deliveryTime"]) + "\n"
+
+            massage = massage + "Комментарий: "+serializer.data["comment"]+"\n"
+
+            # if (serializer.data["deliveryMethod"] != None):
+            #     massage = massage + "Способ доставки: " + \
+            #         serializer.data["deliveryMethod"] + "\n"
             print(serializer.data)
-            Telegram.send_massage(serializer.data)
+            Telegram.send_massage(massage)
             return Response({
                 "message": serializer.data
             })

@@ -13,15 +13,17 @@ class CalculatorData(models.Model):
     productType = models.CharField(max_length=50, blank=True)
     productName = models.CharField(max_length=50, blank=True)
     quantity = models.IntegerField()
-    mass = models.IntegerField()
+    mass = models.DecimalField(
+        max_digits=19, decimal_places=10, blank=True, null=True)
     deliveryMethod = models.CharField(max_length=50, blank=True)
     address = models.CharField(max_length=50, blank=True)
     insurance = models.BooleanField(default=False)
     comment = models.TextField(blank=True)
-    deliveryPrice = models.IntegerField(default=0, blank=True, null=True)
+    deliveryPrice = models.DecimalField(
+        max_digits=19, decimal_places=10, blank=True, null=True)
     deliveryTime = models.IntegerField(default=0, blank=True, null=True)
     checked = models.BooleanField(default=False)
-
+    
 
 class Client(models.Model):
     name = models.CharField(max_length=50, blank=True)
