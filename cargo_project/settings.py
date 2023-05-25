@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import dj_database_url
 import environ
 from pathlib import Path
-import os
+import os.path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,10 +32,10 @@ SECRET_KEY = 'django-insecure-)@)a(jc*re$a#2x-9dgnsdeawz(0_j#-ngvibj7ns9q=m@i#n+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*,.versel.app"]
 
 
-# Application definition
+# Application definit
 
 INSTALLED_APPS = [
     'django.contrib.admin',
