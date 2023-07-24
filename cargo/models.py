@@ -38,3 +38,21 @@ class Client(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Question(models.Model):
+    question = models.CharField(max_length=50, blank=True)
+    answer = models.TextField()
+
+    def __str__(self) -> str:
+        return self.question
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=50, blank=True)
+    company = models.CharField(max_length=50, blank=True)
+    comment = models.TextField()
+    pic = models.ImageField(upload_to="pics", default="hello1")
+
+    def __str__(self) -> str:
+        return self.name

@@ -114,19 +114,19 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 # RENDER DATABASE
 
-DATABASES = {
-    # 'postgres://cargodatabase_user:OhfycswOq9EDUVwMnCtFM6Y27rpDIEP0@dpg-chkh1mm4dadfmskngh3g-a.oregon-postgres.render.com/cargodatabase')
-    # env('DATABASE_URL'))
-    'default': dj_database_url.parse('postgres://cargodatabase_user:OhfycswOq9EDUVwMnCtFM6Y27rpDIEP0@dpg-chkh1mm4dadfmskngh3g-a.oregon-postgres.render.com/cargodatabase')
-}
+# DATABASES = {
+# 'postgres://cargodatabase_user:OhfycswOq9EDUVwMnCtFM6Y27rpDIEP0@dpg-chkh1mm4dadfmskngh3g-a.oregon-postgres.render.com/cargodatabase')
+# env('DATABASE_URL'))
+#    'default': dj_database_url.parse('postgres://cargodatabase_user:OhfycswOq9EDUVwMnCtFM6Y27rpDIEP0@dpg-chkh1mm4dadfmskngh3g-a.oregon-#postgres.render.com/cargodatabase')
+# }
 
 
 # Password validation
@@ -171,3 +171,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

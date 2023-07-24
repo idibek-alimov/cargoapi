@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Client, CalculatorData
-from .serializers import ClientSerializer, CalculatorDataSerializer
+from .models import Client, CalculatorData, Question, Feedback
+from .serializers import ClientSerializer, CalculatorDataSerializer, QuestionSerializer, FeedbackSerializer
 from rest_framework.response import Response
 from django.conf import settings
 # Create your views here.
@@ -54,7 +54,7 @@ class ClientList(generics.ListCreateAPIView):
             if (serializer.data["deliveryMethod"] != None):
                 massage = massage + "Способ доставки: " + \
                     serializer.data["deliveryMethod"] + "\n"
-            Telegram.send_massage(massage)
+            # Telegram.send_massage(massage)
             return Response({
                 "message": serializer.data
             })
@@ -108,7 +108,7 @@ class CalculatorDataList(generics.ListCreateAPIView):
             #     massage = massage + "Способ доставки: " + \
             #         serializer.data["deliveryMethod"] + "\n"
             print(serializer.data)
-            Telegram.send_massage(massage)
+            # Telegram.send_massage(massage)
             return Response({
                 "message": serializer.data
             })
@@ -116,3 +116,13 @@ class CalculatorDataList(generics.ListCreateAPIView):
             return Response({
                 "error": serializer.errors
             })
+
+
+class QuestionList(generics.ListCreateAPIView):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+
+
+class FeedbackList(generics.ListCreateAPIView):
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer
