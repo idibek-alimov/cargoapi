@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Client, CalculatorData, Question, Feedback
+from .models import Client, CalculatorData, Question, Feedback, MoscowPicture, ChinaPicture, Video
 
 # class MessageSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -28,4 +28,22 @@ class QuestionSerializer(serializers.ModelSerializer):
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
+        fields = ("__all__")
+
+
+class MoscowPictureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MoscowPicture
+        fields = ("__all__")
+
+
+class ChinaPictureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChinaPicture
+        fields = ("__all__")
+
+
+class VideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Video
         fields = ("__all__")

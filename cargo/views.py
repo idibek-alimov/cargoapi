@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Client, CalculatorData, Question, Feedback
-from .serializers import ClientSerializer, CalculatorDataSerializer, QuestionSerializer, FeedbackSerializer
+from .models import Client, CalculatorData, Question, Feedback, MoscowPicture, ChinaPicture, Video
+from .serializers import ClientSerializer, CalculatorDataSerializer, QuestionSerializer, FeedbackSerializer, MoscowPictureSerializer, ChinaPictureSerializer, VideoSerializer
+
 from rest_framework.response import Response
 from django.conf import settings
 # Create your views here.
@@ -126,3 +127,18 @@ class QuestionList(generics.ListCreateAPIView):
 class FeedbackList(generics.ListCreateAPIView):
     queryset = Feedback.objects.all()
     serializer_class = FeedbackSerializer
+
+
+class ChinaPictureList(generics.ListCreateAPIView):
+    queryset = ChinaPicture.objects.all()
+    serializer_class = ChinaPictureSerializer
+
+
+class MoscowPictureList(generics.ListCreateAPIView):
+    queryset = MoscowPicture.objects.all()
+    serializer_class = MoscowPictureSerializer
+
+
+class VideoList(generics.ListCreateAPIView):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer

@@ -56,3 +56,15 @@ class Feedback(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class MoscowPicture(models.Model):
+    pic = models.ImageField(upload_to="pics", default="hello1")
+
+
+class ChinaPicture(models.Model):
+    pic = models.ImageField(upload_to="pics", default="hello1")
+
+
+class Video(models.Model):
+    upload = models.FileField(upload_to='videos/')
