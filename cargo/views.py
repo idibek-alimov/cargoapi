@@ -55,7 +55,7 @@ class ClientList(generics.ListCreateAPIView):
             if (serializer.data["deliveryMethod"] != None):
                 massage = massage + "Способ доставки: " + \
                     serializer.data["deliveryMethod"] + "\n"
-            # Telegram.send_massage(massage)
+            Telegram.send_massage(massage)
             return Response({
                 "message": serializer.data
             })
@@ -105,11 +105,11 @@ class CalculatorDataList(generics.ListCreateAPIView):
 
             massage = massage + "Комментарий: "+serializer.data["comment"]+"\n"
 
-            # if (serializer.data["deliveryMethod"] != None):
-            #     massage = massage + "Способ доставки: " + \
-            #         serializer.data["deliveryMethod"] + "\n"
+            if (serializer.data["deliveryMethod"] != None):
+                massage = massage + "Способ доставки: " + \
+                    serializer.data["deliveryMethod"] + "\n"
             print(serializer.data)
-            # Telegram.send_massage(massage)
+            Telegram.send_massage(massage)
             return Response({
                 "message": serializer.data
             })
