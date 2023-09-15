@@ -53,6 +53,7 @@ class Feedback(models.Model):
     company = models.CharField(max_length=50, blank=True)
     comment = models.TextField()
     pic = models.ImageField(upload_to="pics", default="hello1")
+    video = models.FileField(upload_to='videos/', null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
