@@ -82,7 +82,8 @@ MIDDLEWARE = [
 ]
 
 # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'cargo_project.urls'
 CORS_ALLOWED_ORIGINS = (
@@ -91,6 +92,11 @@ CORS_ALLOWED_ORIGINS = (
     "http://localhost:8000",
 
 )
+CORS_ORIGIN_WHITELIST = [
+    "https://www.kscargo.ru",
+    "http://localhost:3000",
+    "http://localhost:8000",
+]
 CSRF_TRUSTED_ORIGINS = ["http://emample.com",
                         "http://localhost:8080", "http://localhost:3000", "https://kscargo.ru"]
 
